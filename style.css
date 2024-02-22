@@ -1,7 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  /* ### Primary */
+  --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+
+  /* ### Neutral */
+  --PaleBlue: hsl(243, 100%, 93%);
+  --GrayishBlue: hsl(229, 7%, 55%);
+  --DarkBlue: hsl(228, 56%, 26%);
+  --VeryDarkBlue: hsl(229, 57%, 11%);
+}
+
+body {
+  font-size: 14px;
+  background-image: url(images/bg-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+}
+ul {
+  list-style-type: none;
+}
+
+.container {
+  width: 375px;
+  padding: 1.714rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.14rem;
+  margin: 0 auto;
+}
+
+header {
+  padding: 2.928rem;
+  background-color: var(--DarkBlue);
+  border-radius: 0.5rem 7rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  & .img {
+    width: 55%;
+  }
+
+  & ul {
+    display: flex;
+    align-items: center;
+    gap: 1.14rem;
+    & li {
+      background-color: var(--VeryDarkBlue);
+      border-radius: 0.5rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+main {
+  padding: 2.928rem;
+  background-color: var(--DarkBlue);
+  border-radius: 0.5rem;
+  position: relative;
+
+  & h2 {
+    color: var(--GrayishBlue);
+    font-size: 0.75rem;
+    text-align: center;
+    padding-bottom: 0.3rem;
+  }
+  & h2 span {
+    color: white;
+  }
+  & .progress-info {
+    padding-top: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    & span {
+      color: white;
+      font-weight: 700;
+    }
+  }
+  & p {
+    position: absolute;
+    padding: 0.8rem 1rem;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2rem;
+    border-radius: 0.5rem;
+    color: var(--VeryDarkBlue);
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & span {
+      color: var(--GrayishBlue);
+      font-size: 14px;
+      font-weight: 700;
+      align-self: center;
+    }
+  }
+}
+
+.progress-bar {
+  width: 100%; /* Ancho de la barra de progreso */
+  height: 20px; /* Altura de la barra de progreso */
+  background-color: var(--VeryDarkBlue); /* Color de fondo */
+  border-radius: 10px; /* Borde redondeado */
+  overflow: hidden; /* Para que no se muestren las esquinas de la barra de progreso */
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 14px;
+  width: 81.5%;
+  background-image: linear-gradient(
+    to right,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+  position: absolute;
+  transition: width 0.3s ease; /* Animación de la barra de progreso */
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
+  right: 0;
+  border-radius: 10px;
+}
+
+.progress-bar-fill::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  position: absolute;
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url(images/bg-desktop.png);
+    background-color: var(--VeryDarkBlue);
+    background-size: auto;
+    background-position: 0 100%;
+  }
+  .container {
+    flex-direction: row;
+    width: 920px;
+  }
+  main {
+    flex: 1 1 60%;
+    margin: 2.928rem 0 0 0;
+    align-self: flex-end;
+    & h2 {
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+    & p {
+      bottom: unset;
+      top: -2rem;
+      left: unset;
+      transform: translateY(0);
+      right: 3rem;
+    }
+    & p::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-bottom: 35px solid white;
+      bottom: 0;
+      right: -23px;
+      z-index: -1;
+      transform: rotate(45deg);
+    }
+  }
+  header {
+    padding: 2.928rem 5.856rem 2.928rem 2.928rem;
+    & .img {
+      width: 65%;
+    }
+  }
 }
