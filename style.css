@@ -159,7 +159,7 @@ main {
   body {
     background-image: url(images/bg-desktop.png);
     background-color: var(--VeryDarkBlue);
-    background-size: auto;
+    background-size: contain;
     background-position: 0 100%;
   }
   .container {
