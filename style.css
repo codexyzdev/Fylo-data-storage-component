@@ -180,6 +180,7 @@ main {
       left: unset;
       transform: translateY(0);
       right: 3rem;
+      border-radius: 0.5rem 0.5rem 0 0.5rem;
     }
     & p::after {
       content: "";
